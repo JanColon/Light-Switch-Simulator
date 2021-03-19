@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/lswitch_noise.wav-31b8a6c8d949b2aab90e6631bca25feb.sample"
+
+[deps]
+
+source_file="res://lswitch_noise.wav"
+dest_files=[ "res://.import/lswitch_noise.wav-31b8a6c8d949b2aab90e6631bca25feb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

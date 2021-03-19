@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://switch_sprites/lswitch_sheet.png" type="Texture" id=1]
+[ext_resource path="res://switch_scripts/switch_visuals.gd" type="Script" id=2]
+[ext_resource path="res://switch_sprites/lswitch_plate.png" type="Texture" id=3]
+[ext_resource path="res://game_font.tres" type="DynamicFont" id=4]
+[ext_resource path="res://switch_sprites/black.png" type="Texture" id=5]
+[ext_resource path="res://switch_sprites/wall_texture.tres" type="Texture" id=6]
+[ext_resource path="res://lswitch_noise.wav" type="AudioStream" id=7]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="wall_texture" type="Sprite" parent="."]
+position = Vector2( 528.518, 292.397 )
+rotation = 1.5708
+scale = Vector2( 0.345311, 1224.99 )
+texture = ExtResource( 6 )
+
+[node name="lswitch_plate" type="Sprite" parent="."]
+position = Vector2( 529.559, 308.902 )
+scale = Vector2( 0.400551, 0.45062 )
+texture = ExtResource( 3 )
+
+[node name="lswitch_sheet" type="Sprite" parent="lswitch_plate"]
+position = Vector2( 4.70532, 5.81256 )
+scale = Vector2( 1.125, 1 )
+texture = ExtResource( 1 )
+hframes = 2
+script = ExtResource( 2 )
+
+[node name="Player" type="AudioStreamPlayer2D" parent="lswitch_plate/lswitch_sheet"]
+position = Vector2( 1.72546, 13.1987 )
+stream = ExtResource( 7 )
+
+[node name="Count" type="Label" parent="lswitch_plate/lswitch_sheet"]
+margin_left = -2723.79
+margin_top = -607.181
+margin_right = -558.783
+margin_bottom = -554.181
+rect_scale = Vector2( 1.73429, 1.52891 )
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="black" type="Sprite" parent="lswitch_plate/lswitch_sheet"]
+position = Vector2( -6.17786, -32.1453 )
+scale = Vector2( 27.1844, 15.9574 )
+texture = ExtResource( 5 )
+
+[node name="Button" type="Button" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 505.0
+margin_top = 257.0
+margin_right = 557.0
+margin_bottom = 366.0
+custom_colors/font_color_disabled = Color( 0, 0, 0, 0 )
+custom_colors/font_color = Color( 0, 0, 0, 0 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 0 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 0 )
+toggle_mode = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 671.485
+margin_top = 7.27207
+margin_right = 1016.49
+margin_bottom = 36.2721
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Times switched:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="toggled" from="Button" to="lswitch_plate/lswitch_sheet" method="_on_Button_toggled"]

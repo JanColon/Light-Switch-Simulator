@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://game_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://switch_sprites/wall_texture.tres" type="Texture" id=2]
+[ext_resource path="res://switch_sprites/lswitch_plate.png" type="Texture" id=3]
+[ext_resource path="res://switch_sprites/title_sprite.png" type="Texture" id=4]
+[ext_resource path="res://switch_sprites/lswitch_on.png" type="Texture" id=5]
+[ext_resource path="res://switch_scripts/switch_menu.gd" type="Script" id=6]
+[ext_resource path="res://lswitch_noise.wav" type="AudioStream" id=7]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="wall_texture" type="Sprite" parent="."]
+position = Vector2( 517.257, 312.36 )
+rotation = 1.5708
+scale = Vector2( 0.388535, 1354.46 )
+texture = ExtResource( 2 )
+
+[node name="lswitch_plate" type="Sprite" parent="."]
+position = Vector2( 303.197, 308.595 )
+scale = Vector2( 0.236111, 0.265625 )
+texture = ExtResource( 3 )
+
+[node name="lswitch_on" type="Sprite" parent="lswitch_plate"]
+position = Vector2( 2.36377, 4.10815 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="lswitch_plate"]
+margin_left = 7.15894
+margin_top = -101.507
+margin_right = 559.159
+margin_bottom = -40.5068
+rect_scale = Vector2( 3.48973, 3.56354 )
+custom_fonts/font = ExtResource( 1 )
+text = "Click the switch 
+to play..."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Button" type="Button" parent="lswitch_plate"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -280.0
+margin_top = -346.0
+margin_right = 280.0
+margin_bottom = 347.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="switch_menu_play" type="AudioStreamPlayer2D" parent="lswitch_plate/Button"]
+position = Vector2( 280, 346 )
+stream = ExtResource( 7 )
+
+[node name="title_sprite" type="Sprite" parent="."]
+position = Vector2( 506.702, 112.412 )
+scale = Vector2( 0.781731, 0.830589 )
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 244.598
+margin_top = 451.854
+margin_right = 704.598
+margin_bottom = 512.854
+rect_scale = Vector2( 1.11902, 1.18668 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Created by TopJaNNN
+Developed with Godot"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="lswitch_plate/Button" to="lswitch_plate/Button" method="_on_Button_pressed"]
